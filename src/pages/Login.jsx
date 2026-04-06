@@ -5,14 +5,38 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const login = () => {
-        API.post("/auth/login", {email, password})
-        .then(res => {
-            localStorage.setItem("token", res.data.token);
-            alert("Login successful");
-        })
-        .catch(() => alert("Login failed"));
-    };
+    const login = async () => {
+  if (!email || !password) {
+    alert("Please enter email and password");
+    return;
+  }
+
+  try {
+    const res = await API.post("/auth/login", { email, password });
+
+    // ✅ Save token
+    localStorage.setItem("token", res.data.token);
+
+    // ✅ Save user (if exists)
+    if (res.data.user) {
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+    }
+
+    alert("Login successful ✅");
+
+    // ✅ Redirect
+    window.location.href = "/";
+
+  } catch (err) {
+    console.error(err);
+
+    if (err.response) {
+      alert(err.response.data.message || "Login failed ❌");
+    } else {
+      alert("Server not responding ❌");
+    }
+  }
+};
 
     return (
         <div>
