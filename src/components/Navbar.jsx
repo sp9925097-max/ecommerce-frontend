@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 function Navbar() {
     return (
-        <div style={{display: "flex",gap:"20px",padding: "10px", background: "#222",color: "#fff"}}>
-            <h2>E-Shop</h2>
-            <Link to="/" style={{color: "white"}}>Home</Link>
-            <Link to="/cart" style={{color: "white"}}>Cart</Link>
-            <Link to="/login" style={{color: "white"}}>Login</Link>
+        <div className="bg-gray-900 text-white flex justify-between p-4">
+            <h2 className="font-bold text-xl">E-Shop</h2>
+            <div className="flex gap-6">
+                <Link to="/">Home</Link>
+                <Link to="/cart">Cart</Link>
+                <Link to="/orders">Orders</Link>
+            </div>
         </div>
     );
 }

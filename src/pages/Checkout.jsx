@@ -1,4 +1,4 @@
-import API from "../api";
+import API from "../services/api";
 
 function Checkout() {
     const placeOrder = async () => {

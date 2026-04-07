@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import API from "../api";
+import API from "../services/api";
 
 function Orders() {
     const [orders, setOrders] = useState([]);
