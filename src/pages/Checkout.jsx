@@ -29,7 +29,11 @@ function Checkout() {
             const rzp = new window.Razorpay(options);
             rzp.open();
         }
-    }
+        catch(err){
+            console.error(err);
+            alert("Payment failed");
+        }
+    }; 
     return (
         <div>
             <h1>Checkout</h1>
