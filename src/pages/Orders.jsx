@@ -17,6 +17,7 @@ function Orders() {
                 <div key={order.id}>
                     <h3>Order ID: {order.id}</h3>
                     <p>Total: ₹{order.totalAmount}</p>
+                    <p>Status: {order.status}</p>
                     </div>
             ))}
         </div>
